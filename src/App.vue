@@ -88,7 +88,6 @@ const isAtEnd = ref(false);
 
 const pages = ref([
   { type: "cover", title: "Book for My Nin", subtitle: "Memory awaits", cssClass: "hardcover" },
-  { type: "blank", cssClass: "inside-paper" },
 
   { type: "content", image: "https://res.cloudinary.com/dvljcimlz/image/upload/v1780830765/Messenger_creation_0A42DF5D-014F-4A98-87DF-EB069DD9F1DE_pm1f2k.jpg", title: "Where It Began", cssClass: "inside-paper" },
   { type: "content", image: "https://res.cloudinary.com/dvljcimlz/image/upload/v1780476624/Messenger_creation_6647328F-2A97-4BA4-8236-B58D12011FEB_n4299h.jpg", cssClass: "inside-paper" },
@@ -109,7 +108,9 @@ const pages = ref([
   { type: "content", image: "https://res.cloudinary.com/dvljcimlz/image/upload/v1779193115/photo_2026-05-19_19-18-10_qcetj1.jpg", cssClass: "inside-paper" },
 
   { type: "video", video: "https://res.cloudinary.com/dvljcimlz/video/upload/v1780830779/Messenger_creation_7E36B50C-B1CB-4E7C-8E29-D4A342B2EE9E_nj0cpt.mp4", title: "In Motion", cssClass: "inside-paper" },
-  
+    { type: "video", cssClass: "inside-paper", title: "ភ្លេចអីភ្លេចបានតែកុំភ្លេចថា​ 😁" , video:"https://res.cloudinary.com/dvljcimlz/video/upload/v1780835565/8456c99a2497e1af897efd46b7db0ce2_bkqo7z.mp4"},
+
+    { type: "content", cssClass: "inside-paper", title: "Send រូបមកច្រើនៗមក​ចាំបង add ចូលថែមទៀត" },
   { type: "content", cssClass: "inside-paper" , title: "To be continued..."},
   { type: "cover", title: "Forever.", cssClass: "hardcover" }
 ]);
@@ -161,7 +162,7 @@ const goPrev = () => { if (pageFlipInstance) pageFlipInstance.flipPrev(); };
   font-family: 'Quicksand', sans-serif;
   padding: 40px 20px;
   position: relative;
-  overflow: hidden; /* Keeps bubbles inside */
+  overflow: hidden; 
 }
 
 /* --- BACKGROUND BUBBLE ANIMATIONS --- */
@@ -172,7 +173,7 @@ const goPrev = () => { if (pageFlipInstance) pageFlipInstance.flipPrev(); };
   width: 100%;
   height: 100%;
   z-index: 0;
-  pointer-events: none; /* Allows clicks to pass through to the book */
+  pointer-events: none; 
 }
 
 .bubble {
@@ -183,7 +184,6 @@ const goPrev = () => { if (pageFlipInstance) pageFlipInstance.flipPrev(); };
   animation: floatUp linear infinite;
 }
 
-/* Randomize bubble sizes, positions, and speeds */
 .bubble:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-duration: 12s; animation-delay: 0s; }
 .bubble:nth-child(2) { width: 150px; height: 150px; left: 25%; animation-duration: 18s; animation-delay: 2s; }
 .bubble:nth-child(3) { width: 60px; height: 60px; left: 40%; animation-duration: 10s; animation-delay: 5s; }
@@ -277,6 +277,7 @@ const goPrev = () => { if (pageFlipInstance) pageFlipInstance.flipPrev(); };
   color: white;
   font-size: 2.8rem;
   margin-bottom: 10px;
+  line-height: 1.2;
 }
 
 .subtitle-text {
@@ -378,4 +379,58 @@ const goPrev = () => { if (pageFlipInstance) pageFlipInstance.flipPrev(); };
 }
 
 .text-btn:hover:not(:disabled) { color: #007EA7; }
+
+/* --- MOBILE RESPONSIVENESS (NEW) --- */
+@media (max-width: 768px) {
+  .title-text {
+    font-size: 2rem; /* Scaled down for tablets and large phones */
+  }
+  .subtitle-text {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+  }
+  .content-title {
+    font-size: 1.4rem;
+  }
+  .content-text {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .aqua-container {
+    padding: 20px 10px; /* Less padding on the very edges */
+  }
+  .cover-layout {
+    padding: 12px; /* Gives the text more room to breathe */
+  }
+  .cover-border {
+    padding: 15px 10px;
+  }
+  .title-text {
+    font-size: 1.6rem; /* Perfect size for small mobile screens */
+    margin-bottom: 8px;
+  }
+  .subtitle-text {
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+  }
+  .content-layout {
+    padding: 15px; /* Smaller padding inside the pages */
+  }
+  .content-title {
+    font-size: 1.2rem;
+  }
+  .content-text {
+    font-size: 0.8rem;
+  }
+  .action-btn {
+    font-size: 0.85rem;
+    padding: 10px 20px;
+  }
+  .header-prompt {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+}
 </style>
