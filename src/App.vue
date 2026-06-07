@@ -87,7 +87,7 @@ const currentPage = ref(0);
 const isAtEnd = ref(false);
 
 const pages = ref([
-  { type: "cover", title: "Book for My Nin🩵", subtitle: "Memory awaits", cssClass: "hardcover" },
+  { type: "cover", title: "Book for My Nin", subtitle: "Memory awaits", cssClass: "hardcover" },
   { type: "blank", cssClass: "inside-paper" },
 
   { type: "content", image: "https://res.cloudinary.com/dvljcimlz/image/upload/v1780830765/Messenger_creation_0A42DF5D-014F-4A98-87DF-EB069DD9F1DE_pm1f2k.jpg", title: "Where It Began", cssClass: "inside-paper" },
